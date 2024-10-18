@@ -1,0 +1,14 @@
+: 1728756523:0;npm init -y
+: 1728756534:0;npm i express cors
+: 1728756564:0;npm i mongoose
+: 1728756810:0;npm jsonwebtoken
+: 1728756817:0;npm i jsonwebtoken
+: 1728756948:0;npm i bcrypt
+: 1728758804:0;nodemon app.js
+: 1728762939:0;cd //
+: 1728857693:0;nodemon app.js
+: 1728948022:0;nodemon app.js
+: 1728972153:0;nodemon app.js
+: 1729038658:0;nodemon app.js
+: 1729200002:0;nodemon app.js
+: 1729213583:0;nodemon app.js

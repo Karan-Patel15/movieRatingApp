@@ -1,0 +1,78 @@
+: 1727741417:0;npm install
+: 1727741577:0;npm run dev
+: 1727741672:0;ls
+: 1727741692:0;npm install -D tailwindcss postcss autoprefixer
+: 1727741748:0;npx tailwindcss init -p
+: 1727742205:0;cd ..
+: 1727743094:0;ls
+: 1727743097:0;clear
+: 1727743097:0;ls
+: 1727743102:0;npm install react-query axios
+: 1727743673:0;npm i -D @types/node
+: 1727743689:0;npx shadcn@latest init
+: 1727743855:0;npx shadcn@latest init
+: 1727743910:0;npx shadcn@latest add card\
+
+: 1727744544:0;npm i -D @types/node
+: 1727744738:0;npm i react-router-dom
+: 1728603853:0;ls
+: 1728603862:0;npm run dev
+: 1728606092:0;;s
+: 1728606093:0;ls
+: 1728606097:0;clear
+: 1728606146:0;npx shadcn@latest add dropdown-menu\
+
+: 1728606184:0;npx shadcn@latest add button\
+
+: 1728608078:0;npx shadcn@latest add avatar\
+
+: 1728611711:0;ls
+: 1728611713:0;npx shadcn@latest add skeleton\
+
+: 1728673629:0;ls
+: 1728673635:0;npm run dev
+: 1728674528:0;npm i zod
+: 1728674954:0;npm i react-hook-form
+: 1728674973:0;npm i zodResolver
+: 1728674998:0;npm install @hookform/resolvers
+: 1728675071:0;npm install @hookform/resolvers
+: 1728675093:0;npx shadcn@latest add form\
+
+: 1728675934:0;npx shadcn@latest add input\
+
+: 1728756513:0;ls
+: 1728756518:0;cd backend
+: 1728760618:0;npm run dev
+: 1728762950:0;ls
+: 1728762956:0;npm i axios
+: 1728857683:0;npm run dev
+: 1728874441:0;npm run dev
+: 1728878423:0;ls
+: 1728878427:0;npx shadcn@latest add badge\
+
+: 1728880753:0;ls
+: 1728880756:0;npx shadcn@latest add dropdown-menu\
+
+: 1728938241:0;npm run dev
+: 1728972165:0;ls
+: 1728972170:0;npm run dev
+: 1729038657:0;npm run dev
+: 1729040915:0;ls
+: 1729040922:0;npm i react-rating
+: 1729199968:0;npm d react-rating
+: 1729199976:0;npm uninstall react-rating
+: 1729199981:0;npm i react-simple-star-rating
+: 1729199992:0;ls
+: 1729199999:0;npm run dev
+: 1729213581:0;npm run dev
+: 1729213765:0;git s
+: 1729213769:0;git init
+: 1729213773:0;git origin
+: 1729213778:0;git --helo
+: 1729213782:0;git --help
+: 1729213787:0;git username
+: 1729213789:0;clear
+: 1729213790:0;git
+: 1729213795:0;clear
+: 1729213804:0;git s
+: 1729213807:0;git add .
