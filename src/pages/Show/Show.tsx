@@ -7,26 +7,43 @@ import {
   CardContent,
 } from "../../components/ui/card";
 import { useQuery } from "react-query";
-import { getMovieDetails, getMovieReviews } from "./SearchMovie";
+import {
+  getMovieDetails,
+  getTVDetails,
+  getMovieReviews,
+  getShowReviews,
+} from "./index";
 import { useParams } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
-export default function ShowMovie() {
+
+interface props {
+  contentType: number;
+}
+export default function ShowMovie(props: props) {
   const { id } = useParams();
   const {
     data: movieData,
     error: movieError,
     isLoading: movieLoading,
-  } = useQuery("movieDetails", () => {
-    return getMovieDetails(id || "");
-  });
+  } = props.contentType == 0
+    ? useQuery("movieDetails", () => {
+        return getMovieDetails(id || "");
+      })
+    : useQuery("TVDetails", () => {
+        return getTVDetails(id || "");
+      });
 
   const {
     data: userReviews,
     error: reviewsError,
     isLoading: reviewsLoading,
-  } = useQuery("movieReviews", () => {
-    return getMovieReviews(id || "");
-  });
+  } = props.contentType == 0
+    ? useQuery("movieReviews", () => {
+        return getMovieReviews(id || "");
+      })
+    : useQuery("TVReviews", () => {
+        return getShowReviews(id || "");
+      });
 
   if (movieLoading || reviewsLoading) {
     return <div>Loading...</div>;
@@ -45,7 +62,7 @@ export default function ShowMovie() {
         <Card className="max-w-96 z-0 mt-56 mr-36">
           <CardContent className="px-0 pt-0">
             <img
-              className="w-full rounded-lg"
+              className="w-full min-w-96 rounded-lg"
               src={`https://image.tmdb.org/t/p/w342/${movieData.poster_path}`}
               alt="movie poster"
             />
@@ -87,14 +104,13 @@ export default function ShowMovie() {
                 <CardHeader className=" pb-1 border-b-2">
                   <CardTitle>{review.username}</CardTitle>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="mt-2">
                   <Rating
                     allowFraction={true}
                     initialValue={Number(review.rating)}
                     readonly={true}
                     size={30}
                   />
-                  <span className="">: {review.rating}</span>
 
                   <CardDescription className="mt-5">
                     {review.description}

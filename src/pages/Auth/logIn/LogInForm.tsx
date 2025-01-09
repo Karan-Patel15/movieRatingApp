@@ -41,13 +41,13 @@ export default function LogInForm() {
     },
   });
 
-  function onSubmit(values: z.infer<typeof logInSchema>) {
-    logIn(values.username, values.password);
-    if (!localStorage.getItem("user")) {
+  async function onSubmit(values: z.infer<typeof logInSchema>) {
+    await logIn(values.username, values.password);
+    if (!localStorage.getItem("token")) {
       setError("Invalid Username or Password");
     } else {
-      navigate("/");
       setAuth(true);
+      navigate("/");
     }
   }
 
@@ -61,12 +61,12 @@ export default function LogInForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
-                    placeholder="Email"
+                    placeholder="Username"
                     className={error ? "border-pink-500" : ""}
                   />
                 </FormControl>

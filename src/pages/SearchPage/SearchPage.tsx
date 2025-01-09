@@ -1,55 +1,36 @@
+import Container from "../../components/Container";
 import {
   Card,
   CardHeader,
-  CardFooter,
   CardTitle,
-  CardDescription,
-  CardContent,
+  CardFooter,
 } from "../../components/ui/card";
-
-import { getTrendingMovies, getOnAirTvShows } from "./index";
 import { useQuery } from "react-query";
-import Container from "../../components/Container";
-import SkeletonLayout from "../../components/SkeletonLayout";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Rating } from "react-simple-star-rating";
-import { useState } from "react";
-import SearchBar from "../../components/SearchBar";
+import { MovieSearch, ShowSearch } from "./index";
+import { useLocation } from "react-router-dom";
 
-function Home() {
-  const [contentType, setContentType] = useState(0);
+export default function SearchPage() {
+  const location = useLocation();
+  const query = location.state.query;
+  const contentType = location.state.contentType;
+  console.log(query);
+  console.log(contentType);
   const { data, error, isLoading } =
     contentType == 0
-      ? useQuery("movieData", getTrendingMovies)
-      : useQuery("tvData", getOnAirTvShows);
+      ? useQuery(["movieSearch", query], MovieSearch)
+      : useQuery(["tvSearch", query], ShowSearch);
   if (error) {
     return <div>Error</div>;
   }
   if (isLoading) {
     return <></>;
   }
+  console.log(data);
   return (
     <Container>
-      <SearchBar contentType={contentType} />
-      <div className="flex flex-row justify-center gap-5 mb-10">
-        <button
-          className={`${
-            contentType == 0 ? "bg-blue-500 text-white" : "bg-white text-black"
-          } px-5 py-2 rounded-lg`}
-          onClick={() => setContentType(0)}
-        >
-          Movies
-        </button>
-        <button
-          className={`${
-            contentType == 1 ? "bg-blue-500 text-white" : "bg-white text-black"
-          } px-5 py-2 rounded-lg`}
-          onClick={() => setContentType(1)}
-        >
-          TV Shows
-        </button>
-      </div>
-
       <div className="grid grid-cols-4 gap-5">
         {data.results.map((result: any) => (
           <Link
@@ -89,5 +70,3 @@ function Home() {
     </Container>
   );
 }
-
-export default Home;

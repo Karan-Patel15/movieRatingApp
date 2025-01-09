@@ -12,8 +12,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { logIn } from "../AuthHelper";
+import { register } from "../AuthHelper";
 import { useState, useEffect } from "react";
+import { useAuth } from "../AuthProvider";
 import { Link, useNavigate } from "react-router-dom";
 
 interface response {
@@ -21,8 +22,9 @@ interface response {
   user: string;
   token: string;
 }
-export default function LogInForm() {
+export default function RegisterForm() {
   const [error, setError] = useState<string>("");
+  const { auth, setAuth } = useAuth();
   const navigate = useNavigate();
 
   const logInSchema = z.object({
@@ -41,12 +43,9 @@ export default function LogInForm() {
   });
 
   function onSubmit(values: z.infer<typeof logInSchema>) {
-    logIn(values.username, values.password);
-    if (!localStorage.getItem("user")) {
-      setError("Invalid Username or Password");
-    } else {
-      navigate("/");
-    }
+    register(values.username, values.password);
+    navigate("/");
+    setAuth(true);
   }
 
   return (
@@ -59,12 +58,12 @@ export default function LogInForm() {
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel>Username</FormLabel>
                 <FormControl>
                   <Input
                     {...field}
                     type="text"
-                    placeholder="Email"
+                    placeholder="Username"
                     className={error ? "border-pink-500" : ""}
                   />
                 </FormControl>
@@ -94,9 +93,11 @@ export default function LogInForm() {
             )}
           />
           <FormMessage>{error}</FormMessage>
+
           <Button className="mt-6" type="submit">
             Register
           </Button>
+
           <Link to="/login">
             <Button className="mt-6 ml-2" type="button">
               Log In

@@ -1,5 +1,5 @@
 import express from "express";
-import Movie from "../models/Movie.js";
+import TVShow from "../models/TVShow.js";
 import Review from "../models/Review.js";
 
 const router = express.Router();
@@ -7,9 +7,9 @@ const router = express.Router();
 router.get("/:id", async (req, res) => {
   const { id } = req.params;
   try {
-    const movie = await Movie.find({ MovieId: `${id}` }).populate("reviews");
-    if (movie) {
-      res.json(movie[0]);
+    const show = await Movie.find({ ShowID: `${id}` }).populate("reviews");
+    if (show) {
+      res.json(show[0]);
     } else {
       res.json({ reviews: [] });
     }

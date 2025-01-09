@@ -1,4 +1,3 @@
-import Home from "./Home/Home";
 import { useNavigate } from "react-router-dom";
 
 export default function ProtectedPage({

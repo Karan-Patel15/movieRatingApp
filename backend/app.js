@@ -4,6 +4,7 @@ const PORT = 3000;
 import mongoose from "mongoose";
 import authRouter from "./routes/authRoutes.js";
 import movieRouter from "./routes/movieRoutes.js";
+import showRouter from "./routes/showRoutes.js";
 import cors from "cors";
 
 //Middle wares
@@ -11,9 +12,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-console.log("BEFORE ROUTERS");
-
-app.use("/getReviews", movieRouter);
+app.use("/getMovieReviews", movieRouter);
+app.use("/getShowReviews", showRouter);
 app.use("/", authRouter);
 
 mongoose

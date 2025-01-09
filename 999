@@ -76,3 +76,23 @@
 : 1729213795:0;clear
 : 1729213804:0;git s
 : 1729213807:0;git add .
+: 1729213836:0;git cm "index page, auth, reviews implemented"
+: 1729213838:0;git push
+: 1729213953:0;git remote add movieRatingApp https://github.com/Karan-Patel15/movieRatingApp.git
+: 1729213961:0;git push movieRatingApp
+: 1729213980:0;git push --set-upstream movieRatingApp main
+: 1729213985:0;git push
+: 1729220970:0;npm i react-icons
+: 1730061911:0;ls
+: 1730061916:0;ls
+: 1730061917:0;clear
+: 1730061927:0;npm run dev
+: 1730064210:0;ls
+: 1730064213:0;cd backend
+: 1731630011:0;npm run dev
+: 1731679607:0;ls
+: 1731679614:0;ks
+: 1731679615:0;ls
+: 1731679617:0;clear
+: 1731679625:0;ls
+: 1731679634:0;npm run dev
